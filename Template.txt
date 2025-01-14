@@ -1,0 +1,33 @@
+Create venv () = py -m venv my_venv
+
+check that you are in venv
+
+pip install flask
+
+create server.py
+
+insert default:
+
+from flask import Flask,render_template,request
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    return render_template('index.html')
+
+@app.route("/submit", methods=['POST'])
+def submit():
+    data = request.form.to_dict()
+    return data
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+create templates(html) and static(css and js) folder
+
+insert files to relevant folders
+
+flask --app virtualenv.server --debug run
